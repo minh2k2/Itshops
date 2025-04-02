@@ -1,0 +1,44 @@
+
+.read-the-docs {
+  color: #888;
+}
+.heart{
+  padding: 0px;
+  text-align: left;
+  width: 2880px;
+  height: 99px;
+  font-size: 30px;
+}
+.item-nav{
+  margin: 20px;
+  padding: 50px;
+}
+.container {
+  margin: 0px;
+  width: 2880px;
+
+}
+.slide-container {
+  height: 600px;
+  padding: 40px;
+  width: 2880px;
+  
+}
+.slide-container img {
+  width: 8880px;
+  height: 600px;
+  
+}
+.fooder {
+  background-color: #212529;
+  width: 2880px;
+  height: 250px;
+  color: #FBFBFB;
+  padding-bottom:0px ;
+  position: absolute;
+  bottom: 0;
+}
+.react-slideshow-fadezoom-wrapper {
+  width: 2880px;
+  height: 600px;
+}

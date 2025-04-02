@@ -1,0 +1,36 @@
+import 'react-slideshow-image/dist/styles.css'
+import './App.css'
+import React from "react";
+import { Fade } from 'react-slideshow-image';
+
+const fadeImages = [
+    {
+      url: 'https://itshoponline.vn/images/thumbs/0003361_bannertop2.webp',
+      caption: 'First Slide'
+    
+    },
+    {
+      url: 'https://itshoponline.vn/images/thumbs/0003638_iphone16_banner.webp',
+      caption: 'Second Slide'
+    },
+    {
+      url: 'https://itshoponline.vn/images/thumbs/0003641_iphone16pro_banner.webp',
+      caption: 'Third Slide'
+    },
+  ];
+  
+  const Slideshow = () => {
+
+    return (
+      <div className="slide-container">
+        <Fade>
+          {fadeImages.map((fadeImage, index) => (
+            <div key={index}>
+              <img style={{ width: '2880px',height:'600px' }} src={fadeImage.url} />
+            </div>
+          ))}
+        </Fade>
+      </div>
+    )
+  }
+  export default Slideshow;
