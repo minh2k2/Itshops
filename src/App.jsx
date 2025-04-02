@@ -4,7 +4,10 @@ import "react-slideshow-image/dist/styles.css";
 import Nav from 'react-bootstrap/Nav';
 import { Container } from 'react-bootstrap';
 import { Navbar } from 'react-bootstrap';
-import { Slide } from 'react-slideshow-image';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 function App() {
   
@@ -31,7 +34,22 @@ function App() {
         <Nav.Link eventKey="link-2">Tra gop</Nav.Link>
       </Nav.Item>
     </Nav>
+        <Form inline>
+        <Row>
+          <Col xs="auto">
+            <Form.Control
+              type="text"
+              placeholder="Search"
+              className=" mr-sm-2"
+            />
+          </Col>
+          <Col xs="auto">
+            <Button type="submit">Submit</Button>
+          </Col>
+        </Row>
+      </Form>
     </Container>
+
     </Navbar>
     </div>
     <div className='slide'>
