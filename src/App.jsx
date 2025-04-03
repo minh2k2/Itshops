@@ -22,16 +22,16 @@ function App() {
         <Nav.Link href="/home" className='item-nav'>ItShops</Nav.Link>
       </Nav.Item>
       <Nav.Item as="li">
-        <Nav.Link eventKey="link-2">Iphone</Nav.Link>
+        <Nav.Link eventKey="Iphone">Iphone</Nav.Link>
       </Nav.Item>
       <Nav.Item as="li">
-        <Nav.Link eventKey="link-2">Ipad</Nav.Link>
+        <Nav.Link eventKey="Ipand">Ipad</Nav.Link>
       </Nav.Item>
       <Nav.Item as="li">
-        <Nav.Link eventKey="link-2">Phukien</Nav.Link>
+        <Nav.Link eventKey="Phukien">Phu kien</Nav.Link>
       </Nav.Item>
       <Nav.Item as="li">
-        <Nav.Link eventKey="link-2">Tra gop</Nav.Link>
+        <Nav.Link eventKey="Tragop">Tra gop</Nav.Link>
       </Nav.Item>
     </Nav>
         <Form inline>
@@ -58,5 +58,4 @@ function App() {
     </>
   )
 }
-
 export default App
