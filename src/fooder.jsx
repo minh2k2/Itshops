@@ -12,8 +12,8 @@ const Fooder = () => {
             <li>facebook</li>
             <TimeAPI></TimeAPI>
             </div>
-            <h1 style={{position:'absolute',paddingBottom:'600px'}}>ItShops</h1>
-            <h1 style={{textAlign:"right"}}>Map</h1>
+            
+          
             
         </div>
     )
