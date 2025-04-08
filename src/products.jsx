@@ -27,17 +27,30 @@ function Products(){
 //     useEffect(() => {
 //         fetchProduct();
 //     }, []);
+const addTocart= async (productId, quantity=1)=>{
+    try{
+        await axios.post('http://localhost:5000/cart', {    
+            product_id : productId,
+            quantity: quantity,
+        }).then(()=>alert('Thêm sản phẩm vào giỏ hàng thành công!'));
 
+    }catch(error){
+        console.error('Lỗi khi thêm sản phẩm vào giỏ hàng:', error);
+        alert('thất bại!');
+    }
+};
     return (
         <div className='content'>
         <h1 style={{paddingTop:'50px',paddingLeft:'8px'}}>Danh sach noi bat</h1>
         <div className="product">
         {products.map(product => (
             <div key={product.id} className="product-item">
-                <img src={product.image} alt={product.name} /><br></br>
+                <img 
+                src={product.image} 
+                alt={product.name} /><br></br>
                 <h3>{product.name}</h3><br></br>
                 <p>{product.details}</p><br></br>
-                <Button variant='warning'><strong>{product.price.toLocaleString()}₫</strong></Button>
+                <Button onClick={()=>addTocart(product.id)} variant='warning'><strong>{product.price.toLocaleString()}₫</strong></Button>
             </div>
         ))}
     </div>
