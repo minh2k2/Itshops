@@ -1,31 +1,44 @@
 
-.read-the-docs {
-  color: #888;
-}
+
 .heart{
   padding: 0px;
-  text-align: left;
-  width: 100%;
-  height: 99px;
+  width: 2300px;
+  height: 170px;
   font-size: 30px;
 }
+nav {
+  position: absolute;
+  padding-top: 200px;
+  height: 170px;
+  width: 100%;
+
+}
 .item-nav{
+  text-align: left;
+  
+}
+.nav-link {
   margin: 20px;
-  padding: 50px;
+  width: 190px;
+  height: 180px;
+  margin-top: 100px;
 }
 .container {
-  margin: 0px;
+  
+  text-align: left;
+  margin-top: 200px;
+  margin: 100px;
   width: 100%;
 
 }
 .slide-container {
   height: 600px;
   padding: 40px;
-  width: 2870px;
+  width: 2300px;
   
 }
 .slide-container img {
-  width: 8880px;
+  width:100%;
   height: 600px;
   
 }
@@ -43,12 +56,12 @@
   z-index: 100;
 }
 .react-slideshow-fadezoom-wrapper {
-  width: 2880px;
+  width: 100%;
   height: 600px;
 }
 .content{
   position: absolute;
-  height: 2000px;
+  height: 2950px;
 
 }
 .product{
@@ -56,9 +69,9 @@
   position: absolute;
   padding-top: 50px;
   display: grid;
-  grid-template-columns: repeat(5, 1fr); /* 4 cột bằng nhau */
+  grid-template-columns: repeat(4, 1fr); /* 4 cột bằng nhau */
   gap: 20px;
-  padding: 20px;
+  padding: 15px;
   
 }
 .product-item {
@@ -81,4 +94,8 @@
   height: 500px;
   object-fit: cover;
   border-radius: 8px;
+}
+.row{
+  width: 500px;
+  text-align: right;
 }

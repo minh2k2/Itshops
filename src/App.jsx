@@ -14,10 +14,10 @@ function App() {
 
   return (
     <>
-    <div className='heart'>
+    <div className='heart' style={{width:'100%'}}>
     <Navbar bg='dark'data-bs-theme ='dark'>
     <Container>
-    <Nav defaultActiveKey="/home" as="ul">
+    <Nav defaultActiveKey="/home" as="ul" style={{width:'100%'}}>
       <Nav.Item as="li">
         <Nav.Link href="/home" className='item-nav'>ItShops</Nav.Link>
       </Nav.Item>
