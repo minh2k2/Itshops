@@ -99,3 +99,13 @@ nav {
   width: 500px;
   text-align: right;
 }
+.link-dom{
+  text-decoration: none;
+  color: #000000;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 5px;
+  
+  
+}
