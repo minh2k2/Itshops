@@ -26,7 +26,15 @@ const fadeImages = [
         <Fade>
           {fadeImages.map((fadeImage, index) => (
             <div key={index}>
-              <img style={{ width: '2880px',height:'600px' }} src={fadeImage.url} />
+             <img
+              style={{
+                width: '100%',
+                height: '600px',
+                objectFit: 'cover' // or 'contain' depending on your needs
+              }}
+              src={fadeImage.url}
+              alt={fadeImage.caption || ""}
+            />
             </div>
           ))}
         </Fade>

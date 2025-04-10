@@ -30,10 +30,6 @@ function App() {
     <Slideshow/>
     <AppRoutes/>
     <Fooder/>
-
-
-
-
     </div>
     
   )

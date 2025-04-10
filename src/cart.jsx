@@ -74,7 +74,7 @@ function Cart () {
             </Table>
             <div style={{textAlign:'right'}}>
                 <Button variant="outline-warning" style={{marginRight:'10px'}}><Link to="/" className="link-dom">Tiep tuc mua hang</Link></Button>
-                <Button variant="outline-success"><Link to="/payment" className="link-dom">Thanh toan</Link></Button>
+                <Button variant="outline-success"><Link to="/confirm" className="link-dom">Thanh toan</Link></Button>
                 </div>
             </div>
 
