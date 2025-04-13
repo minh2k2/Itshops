@@ -11,7 +11,7 @@ function Cart () {
     const [carts, setCart] = useState([]);
     const fecthCart = async () => {
         try {
-            const response = await axios.get('http://127.0.0.1:5000/showcart');
+            const response = await axios.get('http://localhost:5000/showcart');
             setCart(response.data.carts);
         } catch (error) {
             console.log("Lỗi khi fetch cart:", error);
@@ -21,7 +21,7 @@ function Cart () {
         fecthCart();
     }, []);
     const handleDelete = async (productId) => {
-        await axios.delete("http://127.0.0.1:5000/deletecart", {
+        await axios.delete("http://localhost:5000/deletecart", {
             headers: {
               "Content-Type": "application/json",
             },

@@ -29,7 +29,7 @@ const fadeImages = [
              <img
               style={{
                 width: '100%',
-                height: '600px',
+                height: '550px',
                 objectFit: 'cover' // or 'contain' depending on your needs
               }}
               src={fadeImage.url}

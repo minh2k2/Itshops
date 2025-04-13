@@ -7,6 +7,7 @@
   font-size: 30px;
 }
 nav {
+  background-color: #000000;
   position: absolute;
   padding-top: 200px;
   height: 170px;
@@ -18,16 +19,15 @@ nav {
   
 }
 .nav-link {
-  margin: 20px;
+  
   width: 190px;
   height: 180px;
-  margin-top: 100px;
+  margin-top: 110px;
 }
 .container {
   
   text-align: left;
-  margin-top: 200px;
-  margin: 100px;
+
   width: 100%;
 
 }
@@ -44,7 +44,7 @@ nav {
 }
 .fooder {
   color: #fcfafa;
-  position: fixed;
+  
   bottom: 0;
   left: 0;
   width: 100%;
@@ -60,14 +60,14 @@ nav {
   height: 600px;
 }
 .content{
-  position: absolute;
-  height: 2950px;
+  
+  height: 320%;
   width: 100%;
 
 }
 .product{
   width: 100%;
-  position: absolute;
+  
   padding-top: 50px;
   display: grid;
   grid-template-columns: repeat(4, 1fr); /* 4 cột bằng nhau */
@@ -77,28 +77,26 @@ nav {
 }
 .product-item {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
+  flex-direction: column;
   gap: 20px;
   padding: 30px;
   background-color: #b0aba0;
-  border-radius: 4px;
+  border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   break-inside: avoid-column;
   width: 500px;
   margin: 18px;
-  
-  
+  text-decoration: none;
+  font-weight: bold;
+  color: #000000;
+  font-size: 20px;
+  font-family: Arial, sans-serif;
 }
 .product-item img {
   width: 100%;
   height: 500px;
   object-fit: cover;
   border-radius: 8px;
-}
-.row{
-  width: 500px;
-  text-align: right;
 }
 .link-dom{
   text-decoration: none;
@@ -122,3 +120,19 @@ nav {
   
   
 }
+.product-detail-content{
+  margin: 20px;
+  
+  width: 50%;
+  float: left;
+  
+}
+.title{
+  float: right;
+  font-size: 50px;
+  color: #000000;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  width: 45%;
+}
+
