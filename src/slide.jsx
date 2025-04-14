@@ -22,7 +22,7 @@ const fadeImages = [
   const Slideshow = () => {
 
     return (
-      <div className="slide-container">
+      <div className="slide-container" style={{backgroundColor:'black'}}>
         <Fade>
           {fadeImages.map((fadeImage, index) => (
             <div key={index}>

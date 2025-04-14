@@ -42,8 +42,8 @@ function Products(){
 //     }
 // };
     return (
-        <div className='content'>
-        <h1 style={{paddingTop:'50px',paddingLeft:'8px'}}>Danh sach noi bat</h1>
+        <div className='content' style={{backgroundColor:'black'}}>
+        <h1 style={{paddingTop:'50px',paddingLeft:'8px',color:'white'}}>Danh sach noi bat</h1>
         <div className="product">
         {products.map(product => (
             <Link to={`/getproducts/${product.id}`} style={{textDecoration:'none'}}>
@@ -53,7 +53,7 @@ function Products(){
                 alt={product.name} /><br></br>
                 <h3>{product.name}</h3><br></br>
                 <p>{product.details}</p><br></br>
-                <Button variant='warning'><strong>{product.price.toLocaleString()}₫</strong></Button>
+                <Button variant='warning'><h3>{product.price.toLocaleString()} VND</h3></Button>
             </div>
             </Link>
         ))}

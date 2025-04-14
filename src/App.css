@@ -67,7 +67,6 @@ nav {
 }
 .product{
   width: 100%;
-  
   padding-top: 50px;
   display: grid;
   grid-template-columns: repeat(4, 1fr); /* 4 cột bằng nhau */

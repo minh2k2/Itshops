@@ -36,9 +36,9 @@ function Cart () {
     }, 0);
 
     return (
-        <div className="cart" style={{marginTop:'50px', height:'100vh',backgroundColor:'White'}}>
+        <div className="cart" style={{ height:'100vh',backgroundColor:'black'}}>
 
-            <h1>Gio hang</h1>
+            <h1 style={{color:'white'}}>Gio hang</h1>
             <div>
             
             <Table striped bordered hover variant="dark">
@@ -73,8 +73,8 @@ function Cart () {
                     </tr>
             </Table>
             <div style={{textAlign:'right'}}>
-                <Button variant="outline-warning" style={{marginRight:'10px'}}><Link to="/" className="link-dom">Tiep tuc mua hang</Link></Button>
-                <Button variant="outline-success"><Link to="/confirm" className="link-dom">Thanh toan</Link></Button>
+                <Button variant="outline-warning" style={{marginRight:'10px'}}><Link to="/" className="link-dom" style={{color:'white'}}>Tiep tuc mua hang</Link></Button>
+                <Button variant="outline-success"><Link to="/confirm" className="link-dom" style={{color:'white'}}>Thanh toan</Link></Button>
                 </div>
             </div>
 

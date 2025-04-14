@@ -5,6 +5,8 @@ import Cart from "./cart.jsx";
 import Confirm from "./confirm.jsx";
 import ProductDetail from "./product-detail.jsx";
 import SignUp from "./Signing_up.jsx";
+import LoginForm from "./Singin.jsx";
+import SearchPage from "./searchs.jsx";
 function AppRoutes() {
     return (
         <Routes>
@@ -13,6 +15,8 @@ function AppRoutes() {
             <Route path="/confirm" element={<Confirm />} />
             <Route path="/getproducts/:id" element={<ProductDetail />} />
             <Route path="/signup" element={<SignUp />} />
+            <Route path="/login" element={<LoginForm />} />
+            <Route path="/search" element={<SearchPage />} />
         </Routes>
     );
 }
