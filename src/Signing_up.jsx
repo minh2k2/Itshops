@@ -99,7 +99,7 @@ export default function SignUp() {
   };
 
   return (
-    <ThemeProvider theme={createTheme({ palette: { mode: 'dark' } })}>
+    <ThemeProvider theme={createTheme({ palette: { mode: 'light' } })}>
       <CssBaseline />
       <SignUpContainer direction="column" justifyContent="center">
         <Card variant="outlined">

@@ -24,8 +24,8 @@ function SearchPage() {
     }, [fetchSearchResults]); // Chỉ gọi lại khi fetchSearchResults thay đổi
   return (
     
-    <div className="search-page" style={{ padding: "20px", backgroundColor: 'black' }}>
-      <h1 style={{ marginTop: "50px", marginLeft: "8px",color:'white' }}>Kết quả tìm kiếm cho "{searchQuery}"</h1>
+    <div className="search-page" style={{ padding: "20px", backgroundColor: 'White' }}>
+      <h1 style={{ marginTop: "50px", marginLeft: "8px",color:'black' }}>Kết quả tìm kiếm cho "{searchQuery}"</h1>
      
       <div className="search-results" style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-around" }}>
         {results.map((product) => (

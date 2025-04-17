@@ -5,8 +5,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "react-slideshow-image/dist/styles.css";
 import Nav from 'react-bootstrap/Nav';
 import { Container, Navbar, Form, Button } from 'react-bootstrap';
-
-
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import CrueltyFreeSharpIcon from '@mui/icons-material/CrueltyFreeSharp';
+import SearchIcon from '@mui/icons-material/Search';
 
 function Navigation() {
   const[search, setSearch] = useState("");
@@ -30,95 +32,86 @@ function Navigation() {
 
   const handleLogout = () => {
     localStorage.removeItem("user");
+    localStorage.removeItem("token");
+    setUser(null);
+    alert("Đăng xuất thành công!");
     // navigate("/"); 
     window.location.href = "/";
   };
 
   return (
-    <div className='heart' style={{ width: '100%' }}>
-      <Navbar bg='dark' data-bs-theme='dark'>
-        <Container>
-          <Nav defaultActiveKey="/home" as="ul" style={{ width: '100%' }}>
-            <Nav.Item as="li">
-              <Link to="/" className='link-dom'>
-                <Nav.Link href="/" className='item-nav'>ItShops</Nav.Link>
-              </Link>
-            </Nav.Item>
-            <Nav.Item as="li">
-              <Link to="/" className='link-dom'>
-                <Nav.Link eventKey="Iphone">Iphone</Nav.Link>
-              </Link>
-            </Nav.Item>
-            <Nav.Item as="li">
-              <Link to="/" className='link-dom'>
-                <Nav.Link eventKey="Ipand">Ipad</Nav.Link>
-              </Link>
-            </Nav.Item>
-            <Nav.Item as="li">
-              <Link to="/" className='link-dom'>
-                <Nav.Link eventKey="Phukien">Phu kien</Nav.Link>
-              </Link>
-            </Nav.Item>
-            <Nav.Item as="li">
-              <Link to="/" className='link-dom'>
-                <Nav.Link eventKey="Tragop">Tra gop</Nav.Link>
-              </Link>
-            </Nav.Item>
-          </Nav>
+    <div className='heart' style={{ width: '100%' ,  backgroundColor: 'black' }}>
+<Navbar bg='light' expand='lg' style={{height: '60px'}}>
+  <Container fluid className="px-4" >
+    <div className="d-flex flex-wrap justify-content-between align-items-center w-100">
 
-          <div className="search" style={{ width: '100%', maxWidth: '600px', margin: '0 auto' }}>
-          <Form className="d-flex" onSubmit={handleSearch}>
-  <Form.Control
-    type="text"
-    placeholder="Tìm kiếm sản phẩm..."
-    className="me-2"
-    value={search}
-    onChange={(e) => setSearch(e.target.value)}
-  />
-  <Button type="submit">OK</Button>
-</Form>
-
-          </div>
-
-          <Button style={{ float: 'left', marginLeft: '5%' }}>
-            <Link to="/Cart" className='link-dom'>
-              <i className="bi-cart">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                  className="bi bi-cart" viewBox="0 0 16 16">
-                  <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2" />
-                </svg>
-              </i>
+      {/* LEFT: Menu */}
+      <div className="d-flex align-items-center flex-wrap w-100 justify-content-between py-2" style={{ width: '100%', maxWidth: '50%' }}>
+        <Nav as="ul" className="d-flex flex-wrap align-items-center mb-2 mb-md-0" >
+          <Nav.Item as="li">
+            <Link to="/" className='link-dom'>
+              <Nav.Link href="/" >
+                <h2><CrueltyFreeSharpIcon sx={{ fontSize: 40 }} />
+                ItShops</h2>
+              </Nav.Link>
             </Link>
-          </Button>
-
-          {user ? (
-            <div style={{ color: 'white', marginLeft: '100px', display: 'flex', alignItems: 'center' }}>
-              <p style={{width:'300px'}}> {user.full_name}</p>
-              <Button
-                variant="outline-light"
-                size="sm"
-                style={{ marginLeft: '10px' }}
-                onClick={handleLogout}
-              >
-                Đăng xuất
-              </Button>
-            </div>
-          ) : (
-            <Button style={{ float: 'left', marginLeft: '1%' }}>
-              <Link to="/signup" className='link-dom'>
-                <i className="bi-cart">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                    className="bi bi-person-circle" viewBox="0 0 16 16">
-                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
-                    <path fillRule="evenodd"
-                      d="M0 8a4 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1" />
-                  </svg>
-                </i>
+          </Nav.Item >
+          {['Iphone', 'Ipad', 'Phukien', 'Tragop'].map((item, idx) => (
+            <Nav.Item as="li" key={idx} className="mx-2">
+              <Link to="/" className='link-dom'>
+                <Nav.Link eventKey={item}>{item}</Nav.Link>
               </Link>
+            </Nav.Item>
+          ))}
+        </Nav>
+      </div>
+
+      {/* CENTER: Search */}
+      <div className="my-2 my-md-0 w-100 w-md-50" style={{ width: '100%', maxWidth: '30%' }}>
+  <Form className="d-flex" onSubmit={handleSearch}>
+    <Form.Control
+      type="text"
+      placeholder="Tìm kiếm sản phẩm..."
+      className="me-2"
+      value={search}
+      onChange={(e) => setSearch(e.target.value)}
+    />
+    <Button type="submit"><SearchIcon /></Button>
+  </Form>
+</div>
+
+
+      {/* RIGHT: Cart + User */}
+      <div className="d-flex align-items-center my-2 my-md-0">
+        <Link to="/Cart" className='link-dom'>
+          <Button variant="light">
+            <ShoppingCartIcon sx={{ fontSize: 40 }} />
+          </Button>
+        </Link>
+
+        {user ? (
+          <div className="d-flex align-items-center ms-3">
+            <span className="me-2 text-nowrap">{user.full_name}</span>
+            <Button
+              variant="outline-secondary"
+              size="sm"
+              onClick={handleLogout}
+            >
+              Đăng xuất
             </Button>
-          )}
-        </Container>
-      </Navbar>
+          </div>
+        ) : (
+          <Link to="/login" className='link-dom ms-3'>
+            <AccountCircleIcon sx={{ fontSize: 40 }} />
+          </Link>
+        )}
+      </div>
+
+    </div>
+  </Container>
+</Navbar>
+
+
     </div>
   );
 }

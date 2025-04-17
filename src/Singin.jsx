@@ -7,18 +7,18 @@ import {
   Typography,
   FormControl,
   FormLabel,
-  Link,
   Stack,
   Card as MuiCard,
   CssBaseline,
 } from "@mui/material";
 import { styled, ThemeProvider, createTheme } from "@mui/material/styles";
+import { Link } from "react-router-dom"; // Removed duplicate import
 // import { useNavigate } from "react-router-dom";
-// Removed from the top level
+
 
 const darkTheme = createTheme({
   palette: {
-    mode: "dark",
+    mode: "light",
   },
 });
 
@@ -68,6 +68,7 @@ export default function LoginForm() {
   if (res.data && res.data.user) {
     setUserInfo(res.data.user);
     localStorage.setItem("user", JSON.stringify(res.data.user));
+    localStorage.setItem("token", res.data.access_token);
     alert("Đăng nhập thành công!");
     // navigate("/");
     window.location.href = "/";
@@ -126,6 +127,13 @@ export default function LoginForm() {
             <Button type="submit" variant="contained" fullWidth>
               Đăng nhập
             </Button>
+            <Typography sx={{ textAlign: 'center' }}>
+              Not have an account?{' '}
+              
+              <Link to="/signup" variant="body2">
+                <Button>Sign up</Button>
+              </Link>
+            </Typography>
           </Stack>
         </Box>
 

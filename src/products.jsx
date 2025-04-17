@@ -2,8 +2,12 @@ import './App.css';
 import React from 'react';
 import { useState,useEffect } from 'react';
 import axios from 'axios';
-import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
+import {  Box, Grid, Card, CardMedia, CardContent, Typography, Button  } from '@mui/material';
+import Rating from '@mui/material/Rating';
+
+
+
 
 function Products(){
     const [products,setproducts]=useState([]);
@@ -29,36 +33,70 @@ function Products(){
 //     useEffect(() => {
 //         fetchProduct();
 //     }, []);
-// const addTocart= async (productId, quantity=1)=>{
-//     try{
-//         await axios.post('http://localhost:5000/cart', {    
-//             product_id : productId,
-//             quantity: quantity,
-//         }).then(()=>alert('Thêm sản phẩm vào giỏ hàng thành công!'));
+const addTocart= async (productId, quantity=1)=>{
+    try{
+        await axios.post('http://localhost:5000/cart', {    
+            product_id : productId,
+            quantity: quantity,
+        }
+        ,{
+            headers:{
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${localStorage.getItem('token')}`,
+            },
+        }
+      ).then(()=>alert('Thêm sản phẩm vào giỏ hàng thành công!'));
 
-//     }catch(error){
-//         console.error('Lỗi khi thêm sản phẩm vào giỏ hàng:', error);
-//         alert('thất bại!');
-//     }
-// };
+    }catch(error){
+        console.error('Lỗi khi thêm sản phẩm vào giỏ hàng:', error);
+        alert('Chưa đăng nhập!');
+    }
+};
     return (
-        <div className='content' style={{backgroundColor:'black'}}>
-        <h1 style={{paddingTop:'50px',paddingLeft:'8px',color:'white'}}>Danh sach noi bat</h1>
-        <div className="product">
-        {products.map(product => (
-            <Link to={`/getproducts/${product.id}`} style={{textDecoration:'none'}}>
-                <div key={product.id} className="product-item">
-                <img 
-                src={product.image} 
-                alt={product.name} /><br></br>
-                <h3>{product.name}</h3><br></br>
-                <p>{product.details}</p><br></br>
-                <Button variant='warning'><h3>{product.price.toLocaleString()} VND</h3></Button>
-            </div>
-            </Link>
-        ))}
-    </div>
-    </div>
+
+      
+        <Box sx={{ backgroundColor: 'while', padding: '30px 20px' ,textAlign: 'center'}}>
+        <Typography variant="h4" color="black" sx={{ mb: 6, pl: 4, pr: 4 }}>
+          <h1>Danh sách nổi bật</h1>
+          
+          
+        </Typography>
+        
+        <Grid container spacing={10} justifyContent="center" >
+          {products.map(product => (
+            <Grid item xs={12} sm={6} md={4} lg={3} xl={2} key={product.id} >
+              <Link to={`/getproducts/${product.id}`} style={{ textDecoration: 'none' }}>
+                <Card sx={{ height: '100%', transition: '0.3s', '&:hover': { transform: 'scale(1.13)' }, width: '500px' ,backgroundColor:'#F6F9FC'}} >
+                  <CardMedia
+                    component="img"
+                    height="500"
+                    image={product.image}
+                    alt={product.name}
+                    margin="20px"
+                  />
+                  <CardContent>
+                    <Typography variant="h6" gutterBottom sx={{ whiteSpace: 'nowrap',overflow:'hidden',textOverflow:'ellipsis'}}>{product.name} </Typography>
+                    <Typography variant="body2" color="text.secondary">{product.details}</Typography>
+                  </CardContent>
+                  <Rating name="no-value" value={5} />
+                  <Box sx={{ px: 2, pb: 2 }}>
+                    <Button fullWidth variant="contained" color="warning" onClick={() => addTocart(product.id)}>
+                      Thêm vào giỏ hàng
+                    </Button>
+                  </Box>
+                  <Box sx={{ px: 2, pb: 2 }}>
+                    <Button fullWidth variant="contained" color="warning">
+                      {product.price.toLocaleString()} VND
+                    </Button>
+                  </Box>
+                  
+                </Card>
+              </Link>
+            </Grid>
+          ))}
+        </Grid>
+      </Box>
+    
     );
 }
 export default Products;

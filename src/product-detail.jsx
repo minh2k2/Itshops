@@ -5,6 +5,9 @@ import Button from "react-bootstrap/Button";
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useParams } from "react-router-dom";
+// import Box from '@mui/material/Box';
+import Rating from '@mui/material/Rating';
+// import Typography from '@mui/material/Typography';
 
 function ProductDetail() {
     const { id } = useParams();
@@ -26,34 +29,46 @@ function ProductDetail() {
     
     const addToCart = async () => {
         try {
-        await axios.post("http://localhost:5000/cart", {
-            product_id: product.id,
-            quantity: quantity,
-        });
-        alert("Thêm sản phẩm vào giỏ hàng thành công!");
+            const token = localStorage.getItem("token");
+            await axios.post(
+                "http://localhost:5000/cart",
+                {
+                    product_id: product.id,
+                    quantity: quantity,
+                },
+                {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                        "Content-Type": "application/json",
+                    },
+                }
+            );
+            alert("Thêm sản phẩm vào giỏ hàng thành công!");
         } catch (error) {
-        console.error("Lỗi khi thêm sản phẩm vào giỏ hàng:", error);
-        alert("Thêm sản phẩm vào giỏ hàng thất bại!");
+            console.error("Lỗi khi thêm sản phẩm vào giỏ hàng:", error);
+            alert("Chưa đăng nhập!");
         }
     };
     
+    
     return (
-        <div className="product-detail" style={{ padding: "20px",height: "500vh", backgroundColor: "White" }}>
+        <div className="product-detail" style={{ padding: "20px",height: "750px", backgroundColor: "White" }}>
         <h1 style={{ marginTop: "50px", marginLeft: "8px" }}>Chi tiết sản phẩm</h1>
         <div className="product-detail-content" style={{  textAlign: "center" }}>
         <h1>{product.name} {productId} </h1>
         <img 
         src={product.image} alt={product.name} style={{ width: "300px", height: "300px" }} />
         <p>{product.details}</p>
-        <p>Giá: {product.price?.toLocaleString()}₫</p>
+        <p>Giá: <h6 style={{color:'green'}}>{product.price?.toLocaleString()}₫</h6></p>
         <p>số lượng:
         <input
-            type="number"
-            value={quantity}
-            onChange={(e) => setQuantity(e.target.value)}
-            min="1"
-            style={{ width: "50px", marginRight: "10px" }}
+          type="number"
+         value={quantity}
+          onChange={(e) => setQuantity(Number(e.target.value))} // 👈 ép kiểu tại đây
+         min="1"
+         style={{ width: "50px", marginRight: "10px" }}
         />
+
         </p>
         <Button variant="warning" onClick={addToCart}>
             Thêm vào giỏ hàng
@@ -63,7 +78,8 @@ function ProductDetail() {
             <h2>Thông tin sản phẩm</h2>
             <p>{product.details}</p>
             <h2>{product.price}VND</h2>
-            <p>Đánh giá sản phẩm sẽ được hiển thị ở đây.</p>
+            
+            <Rating name="no-value" value={null} />
             <h2>Thông số kỹ thuật</h2>
             <p>Thông số kỹ thuật sẽ được hiển thị ở đây.</p>
             <h2>Hướng dẫn sử dụng</h2>

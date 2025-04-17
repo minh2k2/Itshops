@@ -11,7 +11,12 @@ function Cart () {
     const [carts, setCart] = useState([]);
     const fecthCart = async () => {
         try {
-            const response = await axios.get('http://localhost:5000/showcart');
+            const token = localStorage.getItem("token");
+            const response = await axios.get('http://localhost:5000/showcart', {
+                headers: {
+                  Authorization: `Bearer ${token}`,
+                },
+                });
             setCart(response.data.carts);
         } catch (error) {
             console.log("Lỗi khi fetch cart:", error);
@@ -36,9 +41,9 @@ function Cart () {
     }, 0);
 
     return (
-        <div className="cart" style={{ height:'100vh',backgroundColor:'black'}}>
+        <div className="cart" style={{ height:'100vh',backgroundColor:'white'}}>
 
-            <h1 style={{color:'white'}}>Gio hang</h1>
+            <h1 style={{color:'black'}}>Gio hang</h1>
             <div>
             
             <Table striped bordered hover variant="dark">
@@ -73,8 +78,8 @@ function Cart () {
                     </tr>
             </Table>
             <div style={{textAlign:'right'}}>
-                <Button variant="outline-warning" style={{marginRight:'10px'}}><Link to="/" className="link-dom" style={{color:'white'}}>Tiep tuc mua hang</Link></Button>
-                <Button variant="outline-success"><Link to="/confirm" className="link-dom" style={{color:'white'}}>Thanh toan</Link></Button>
+                <Button variant="outline-warning" style={{marginRight:'10px'}}><Link to="/" className="link-dom" style={{color:'black'}}>Tiep tuc mua hang</Link></Button>
+                <Button variant="outline-success"><Link to="/confirm" className="link-dom" style={{color:'black'}}>Thanh toan</Link></Button>
                 </div>
             </div>
 
